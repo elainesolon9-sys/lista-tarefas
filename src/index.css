@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-gray-100 font-body antialiased;
+    background-image: 
+      radial-gradient(ellipse at 20% 50%, rgba(240, 165, 0, 0.04) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-accent-light;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-surface;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent/50;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent font-body font-semibold px-5 py-2.5 rounded-xl
+           hover:bg-accent-light transition-all duration-200 text-sm
+           focus:outline-none focus:ring-2 focus:ring-accent/50;
+    color: #0A0A0F;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-gray-400 font-body font-medium px-4 py-2 rounded-xl
+           hover:bg-surface-elevated hover:text-gray-100 transition-all duration-200 text-sm
+           focus:outline-none focus:ring-2 focus:ring-surface-border;
+  }
+
+  .card {
+    @apply bg-surface-card border border-surface-border rounded-2xl shadow-card
+           hover:border-accent/20 transition-all duration-300;
+  }
+
+  .input-field {
+    @apply bg-surface-elevated border border-surface-border text-gray-100 font-body
+           rounded-xl px-4 py-3 text-sm w-full
+           placeholder:text-gray-500
+           focus:outline-none focus:border-accent/60 focus:ring-1 focus:ring-accent/30
+           transition-all duration-200;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-body font-semibold tracking-wide uppercase;
+  }
+
+  .nav-link {
+    @apply relative font-body font-medium text-gray-400 px-4 py-2 rounded-xl
+           hover:text-gray-100 hover:bg-surface-elevated transition-all duration-200 text-sm;
+  }
+
+  .nav-link.active {
+    @apply text-accent bg-accent/10;
+  }
+
+  .checkbox-custom {
+    @apply w-5 h-5 rounded-full border-2 border-surface-border flex-shrink-0
+           flex items-center justify-center cursor-pointer
+           transition-all duration-300;
+  }
+
+  .checkbox-custom.checked {
+    @apply bg-accent border-accent;
+  }
+
+  .task-title-completed {
+    @apply line-through text-gray-500;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent;
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px rgba(240, 165, 0, 0.2);
+  }
+
+}
